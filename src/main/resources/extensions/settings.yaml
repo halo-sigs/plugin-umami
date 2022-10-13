@@ -1,18 +1,23 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: umami-settings
+  name: plugin-umami-settings
 spec:
-  - group: basic
-    label: 设置
-    formSchema:
-      - $formkit: textarea
-        help: Umami 提供的统计代码，会自动添加到每个页面的 head 标签中
-        label: 统计代码
-        name: code
-        validation: required
-      - $formkit: text
-        label: 共享链接
-        name: url
-        validation: required
-        help: 可以在 Umami 的网站管理中获取共享链接
+  forms:
+    - group: basic
+      label: 设置
+      formSchema:
+        - $formkit: text
+          label: Umami 站点地址
+          name: endpoint
+          validation: required
+        - $formkit: text
+          label: 站点 ID
+          help: 即跟踪代码的 data-website-id
+          name: websiteId
+          validation: required
+        - $formkit: text
+          label: 共享链接
+          name: url
+          validation: required
+          help: 可以在 Umami 的网站管理中获取共享链接
