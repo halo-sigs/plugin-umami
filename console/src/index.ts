@@ -1,40 +1,35 @@
 import { definePlugin, BasicLayout } from "@halo-dev/console-shared";
-import DefaultView from "./views/DefaultView.vue";
-import { IconGrid } from "@halo-dev/components";
-import "./styles/index.css";
+import UmamiView from "./views/UmamiView.vue";
+import MaterialSymbolsAnalyticsOutline from "~icons/material-symbols/analytics-outline";
+import { markRaw } from "vue";
 
 export default definePlugin({
   name: "PluginUmami",
   components: [],
   routes: [
     {
-      path: "/hello-world",
+      path: "/umami",
       component: BasicLayout,
       children: [
         {
           path: "",
-          name: "HelloWorld",
-          component: DefaultView,
-          meta: {
-            permissions: ["plugin:apples:view"],
-          },
+          name: "Umami",
+          component: UmamiView,
         },
       ],
     },
   ],
   menus: [
     {
-      name: "From PluginUmami",
+      name: "统计",
       items: [
         {
-          name: "HelloWorld",
-          path: "/hello-world",
-          icon: IconGrid,
+          name: "Umami",
+          path: "/umami",
+          icon: markRaw(MaterialSymbolsAnalyticsOutline),
         },
       ],
     },
   ],
   extensionPoints: {},
-  activated() {},
-  deactivated() {},
 });
