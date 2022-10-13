@@ -9,9 +9,9 @@ import run.halo.app.plugin.BasePlugin;
  * @since 2.0.0
  */
 @Component
-public class StarterPlugin extends BasePlugin {
+public class UmamiPlugin extends BasePlugin {
 
-    public StarterPlugin(PluginWrapper wrapper) {
+    public UmamiPlugin(PluginWrapper wrapper) {
         super(wrapper);
     }
 
