@@ -1,21 +1,17 @@
 apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
-  # The name defines how the plugin is invoked,A unique name
-  name: PluginStarter
+  name: PluginUmami
 spec:
   enabled: true
-  # 'version' is a valid semantic version string (see semver.org).
   version: 0.0.1-SNAPSHOT
   requires: "*"
   author: halo-dev
-  logo: https://halo.run/logo
-  settingName: starter-settings
-  configMapName: starter-settings
-  # 'homepage' usually links to the GitHub repository of the plugin
-  homepage: https://github.com/halo-sigs/plugin-starter
-  # 'displayName' explains what the plugin does in only a few words
-  displayName: "插件快速开始模板"
-  description: "这是一个插件快速开始模板"
+  logo: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDQyOCAzODkuMTEiPjxnIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgZGF0YS1uYW1lPSJMYXllciA0Ij48Y2lyY2xlIGN4PSIyMTQuMTUiIGN5PSIxODEiIHI9IjE3MSIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iMjAiPjwvY2lyY2xlPjxwYXRoIGQ9Ik00MTMgMTM0LjExSDE1LjI5YTE1IDE1IDAgMDAtMTUgMTV2MTUuM0MuMTIgMTY4IDAgMTcxLjUyIDAgMTc1LjExYzAgMTE4LjE5IDk1LjgxIDIxNCAyMTQgMjE0IDExNi40IDAgMjExLjEtOTIuOTQgMjEzLjkzLTIwOC42NyAwLS40NC4wNy0uODguMDctMS4zM3YtMzBhMTUgMTUgMCAwMC0xNS0xNXoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPgo=
+  settingName: plugin-umami-settings
+  configMapName: plugin-umami-settings
+  homepage: https://github.com/ruibaby/plugin-umami
+  displayName: "Umami"
+  description: "提供对 Umami 的集成"
   license:
     - name: "MIT"

@@ -1,29 +1,18 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: starter-settings
+  name: umami-settings
 spec:
   - group: basic
-    label: 基本设置
+    label: 设置
     formSchema:
+      - $formkit: textarea
+        help: Umami 提供的统计代码，会自动添加到每个页面的 head 标签中
+        label: 统计代码
+        name: code
+        validation: required
       - $formkit: text
-        help: This will be used for your account.
-        label: Email
-        name: email
-        validation: required|email
-      - $formkit: text
-        label: 访问链接
+        label: 共享链接
         name: url
-  - group: advanced
-    label: 高级设置
-    formSchema:
-      - $formkit: text
-        help: This will be used for your theme.
-        label: color
-        name: color
         validation: required
-      - $formkit: color
-        help: This will be used for your theme.
-        label: color
-        name: color
-        validation: required
+        help: 可以在 Umami 的网站管理中获取共享链接
