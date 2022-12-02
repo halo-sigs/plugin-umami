@@ -22,7 +22,7 @@ Halo 2.0 对 [Umami](https://github.com/umami-software/umami) 的集成。(WIP)
 
 ## FAQ
 
-1. Umami使用Nginx反代时，可能导致CORS和CSP错误，需要在Umami反代的配置文件中加入如下配置(请替换域名)。
+1. Umami 使用 Nginx 反代时，可能导致 CORS 和 CSP 错误，需要在 Umami 反代的配置文件中加入如下配置(请替换域名)。
 ```
 server{
     listen 443 ssl http2;
