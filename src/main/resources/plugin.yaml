@@ -16,4 +16,5 @@ spec:
   displayName: "Umami"
   description: "提供对 Umami 的集成"
   license:
-    - name: "MIT"
+    - name: "GPL-3.0"
+      url: "https://github.com/halo-sigs/plugin-umami/blob/main/LICENSE"
