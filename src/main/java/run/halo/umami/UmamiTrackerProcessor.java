@@ -32,7 +32,7 @@ public class UmamiTrackerProcessor implements TemplateHeadProcessor {
 
     private String trackerScript(String websiteId, String endpoint) {
         return """
-                <script async defer data-website-id="%s" src="%s/umami.js"></script>
+                <script async defer data-website-id="%s" src="%s"></script>
                 """.formatted(websiteId, endpoint);
     }
 
