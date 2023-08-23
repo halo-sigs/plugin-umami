@@ -4,8 +4,6 @@ import MaterialSymbolsAnalyticsOutline from "~icons/material-symbols/analytics-o
 import { markRaw } from "vue";
 
 export default definePlugin({
-  name: "PluginUmami",
-  components: [],
   routes: [
     {
       parentName: "Root",

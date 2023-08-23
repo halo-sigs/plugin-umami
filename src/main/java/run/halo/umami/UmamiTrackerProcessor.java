@@ -25,21 +25,22 @@ public class UmamiTrackerProcessor implements TemplateHeadProcessor {
         return settingFetcher.fetch("basic", BasicConfig.class)
                 .map(basicConfig -> {
                     final IModelFactory modelFactory = context.getModelFactory();
-                    model.add(modelFactory.createText(trackerScript(basicConfig.getWebsiteId(), basicConfig.endpoint)));
+                    model.add(modelFactory.createText(trackerScript(basicConfig.getWebsiteId(), basicConfig.endpoint, basicConfig.scriptName)));
                     return Mono.empty();
                 }).orElse(Mono.empty()).then();
     }
 
-    private String trackerScript(String websiteId, String endpoint) {
+    private String trackerScript(String websiteId, String endpoint, String scriptName) {
         return """
-                <script async defer data-website-id="%s" src="%s/umami.js"></script>
-                """.formatted(websiteId, endpoint);
+                <script async defer data-website-id="%s" src="%s/%s"></script>
+                """.formatted(websiteId, endpoint, scriptName);
     }
 
     @Data
     public static class BasicConfig {
         String websiteId;
         String endpoint;
+        String scriptName;
         String url;
     }
 }

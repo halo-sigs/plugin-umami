@@ -12,6 +12,12 @@ spec:
           name: endpoint
           validation: required
         - $formkit: text
+          label: 脚本名称
+          name: scriptName
+          validation: required
+          value: umami.js
+          help: Umami 1.x 默认为 umami.js，Umami 2.x 默认为 script.js
+        - $formkit: text
           label: 站点 ID
           help: 即跟踪代码的 data-website-id
           name: websiteId
