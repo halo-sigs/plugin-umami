@@ -55,7 +55,7 @@ server{
 
 }
 ```
-2. 添加环境变量 `ALLOWED_FRAME_URLS` 内容请写您的halo地址，例：
+2. 方式 2：为 Umami 的容器添加环境变量 `ALLOWED_FRAME_URLS`，值为 Halo 的访问地址，例：
 ```
 ALLOWED_FRAME_URLS=https://www.halo.run
 ```
