@@ -18,13 +18,14 @@ Halo 2.0 对 [Umami](https://github.com/umami-software/umami) 的集成。(WIP)
 1. 在 [Releases](https://github.com/halo-sigs/plugin-umami/releases) 下载最新的 JAR 文件。
 2. 在 Halo 后台的插件管理上传 JAR 文件进行安装。
 3. 启动该插件之后，需要在设置配置 Umami 的相关信息
+4. 进入插件设置页面，配置以下信息：
 > Umami 的站点地址 例：https://umami.halo.run
 > 
 > 脚本名称 Umami 1.x 默认为 umami.js，Umami 2.x 默认为 script.js
 > 
 > 站点 ID 可在Umami的 设置-网站-编辑 中找到
 >  ![IMG_20231123_185706](https://github.com/V-Official-233/plugin-umami/assets/104217168/eab1b464-0325-4147-b5b4-19d468bdbf1b)
-
+> 
 > 共享链接 共享链接需要您手动为对应的网站开启
 
 
@@ -59,4 +60,4 @@ server{
 ```
 ALLOWED_FRAME_URLS=https://www.halo.run
 ```
-> 此方法适用于在任何平台部署的Umami
+> 此方式适用于 Umami 2.3.0 以上版本。
