@@ -17,6 +17,7 @@ export default definePlugin({
             meta: {
               title: "Umami",
               searchable: true,
+              permissions: ["plugin:umami:share-page:view"],
               menu: {
                 name: "Umami",
                 group: "tool",

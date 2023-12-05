@@ -1,0 +1,16 @@
+apiVersion: v1alpha1
+kind: "Role"
+metadata:
+  name: role-template-view-umami
+  labels:
+    halo.run/role-template: "true"
+  annotations:
+    rbac.authorization.halo.run/module: "Umami"
+    rbac.authorization.halo.run/display-name: "允许访问 Umami 页面"
+    rbac.authorization.halo.run/ui-permissions: |
+      ["plugin:umami:share-page:view"]
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    resourceNames: ["plugin-umami-configMap"]
+    verbs: ["get"]
