@@ -7,15 +7,15 @@ import org.thymeleaf.model.IModel;
 import org.thymeleaf.model.IModelFactory;
 import org.thymeleaf.processor.element.IElementModelStructureHandler;
 import reactor.core.publisher.Mono;
-import run.halo.app.plugin.SettingFetcher;
+import run.halo.app.plugin.ReactiveSettingFetcher;
 import run.halo.app.theme.dialect.TemplateHeadProcessor;
 
 @Component
 public class UmamiTrackerProcessor implements TemplateHeadProcessor {
 
-    private final SettingFetcher settingFetcher;
+    private final ReactiveSettingFetcher settingFetcher;
 
-    public UmamiTrackerProcessor(SettingFetcher settingFetcher) {
+    public UmamiTrackerProcessor(ReactiveSettingFetcher settingFetcher) {
         this.settingFetcher = settingFetcher;
     }
 
@@ -23,11 +23,11 @@ public class UmamiTrackerProcessor implements TemplateHeadProcessor {
     public Mono<Void> process(ITemplateContext context, IModel model,
                               IElementModelStructureHandler structureHandler) {
         return settingFetcher.fetch("basic", BasicConfig.class)
-                .map(basicConfig -> {
+                .doOnNext(basicConfig -> {
                     final IModelFactory modelFactory = context.getModelFactory();
                     model.add(modelFactory.createText(trackerScript(basicConfig.getWebsiteId(), basicConfig.endpoint, basicConfig.scriptName)));
-                    return Mono.empty();
-                }).orElse(Mono.empty()).then();
+                })
+                .then();
     }
 
     private String trackerScript(String websiteId, String endpoint, String scriptName) {
