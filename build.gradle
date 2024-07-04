@@ -6,7 +6,11 @@ plugins {
 }
 
 group 'run.halo.umami'
-sourceCompatibility = JavaVersion.VERSION_17
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots' }
