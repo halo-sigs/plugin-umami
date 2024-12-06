@@ -1,6 +1,6 @@
 plugins {
     id "com.github.node-gradle.node" version "5.0.0"
-    id "run.halo.plugin.devtools" version "0.0.9"
+    id "run.halo.plugin.devtools" version "0.4.1"
     id "io.freefair.lombok" version "8.0.1"
     id 'java'
 }
@@ -13,13 +13,15 @@ java {
 }
 
 repositories {
+    maven { url 'https://s01.oss.sonatype.org/content/repositories/releases' }
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots' }
     mavenCentral()
 }
 
 dependencies {
-    implementation platform('run.halo.tools.platform:plugin:2.17.0-SNAPSHOT')
+    implementation platform('run.halo.tools.platform:plugin:2.20.11')
     compileOnly 'run.halo.app:api'
+    compileOnly "run.halo.feed:api:1.4.0"
 
     testImplementation 'run.halo.app:api'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -54,5 +56,6 @@ build {
 }
 
 halo {
-    version = "2.17"
+    version = "2.20.11"
+    debug = true
 }

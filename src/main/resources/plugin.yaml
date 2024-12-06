@@ -7,7 +7,7 @@ metadata:
 spec:
   enabled: true
   version: 1.0.0
-  requires: ">=2.17.0"
+  requires: ">=2.20.11"
   author:
     name: Halo
     website: https://github.com/halo-dev
@@ -19,6 +19,8 @@ spec:
   issues: https://github.com/halo-sigs/plugin-umami/issues
   displayName: "Umami"
   description: "提供对 Umami 的集成"
+  pluginDependencies:
+    PluginFeed?: ">=1.4.0"
   license:
     - name: "GPL-3.0"
       url: "https://github.com/halo-sigs/plugin-umami/blob/main/LICENSE"
