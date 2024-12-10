@@ -1,0 +1,9 @@
+apiVersion: plugin.halo.run/v1alpha1
+kind: ExtensionDefinition
+metadata:
+  name: feed-rss-telemetry-umami-recorder
+spec:
+  className: run.halo.umami.RssTelemetryUmamiRecorder
+  extensionPointName: feed-telemetry-recorder
+  displayName: "Umami RSS 访问量记录器"
+  description: "将 RSS 的内容访问量上报到 Umami"

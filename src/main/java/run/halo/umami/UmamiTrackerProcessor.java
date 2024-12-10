@@ -1,6 +1,5 @@
 package run.halo.umami;
 
-import lombok.Data;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.context.ITemplateContext;
 import org.thymeleaf.model.IModel;
@@ -22,10 +21,10 @@ public class UmamiTrackerProcessor implements TemplateHeadProcessor {
     @Override
     public Mono<Void> process(ITemplateContext context, IModel model,
                               IElementModelStructureHandler structureHandler) {
-        return settingFetcher.fetch("basic", BasicConfig.class)
-                .doOnNext(basicConfig -> {
+        return BasicProp.fetch(settingFetcher)
+                .doOnNext(prop -> {
                     final IModelFactory modelFactory = context.getModelFactory();
-                    model.add(modelFactory.createText(trackerScript(basicConfig.getWebsiteId(), basicConfig.endpoint, basicConfig.scriptName)));
+                    model.add(modelFactory.createText(trackerScript(prop.getWebsiteId(), prop.getEndpoint(), prop.getScriptName())));
                 })
                 .then();
     }
@@ -34,13 +33,5 @@ public class UmamiTrackerProcessor implements TemplateHeadProcessor {
         return """
                 <script async defer data-website-id="%s" src="%s/%s"></script>
                 """.formatted(websiteId, endpoint, scriptName);
-    }
-
-    @Data
-    public static class BasicConfig {
-        String websiteId;
-        String endpoint;
-        String scriptName;
-        String url;
     }
 }
